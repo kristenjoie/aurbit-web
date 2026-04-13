@@ -17,6 +17,25 @@
     <link rel="shortcut icon" href="/aurbit-web/favicon.ico" />
 
     <title>aurbit</title>
+    <script>
+      // SPA GitHub Pages redirect decode: restore the original path that
+      // 404.html encoded into the query string.
+      // Based on https://github.com/rafgraph/spa-github-pages
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) { return s.replace(/~and~/g, '&'); })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
     <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
     <style id="expo-reset">
       :root {
@@ -48,6 +67,6 @@
     </noscript>
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
-  <script src="/aurbit-web/_expo/static/js/web/index-14c05a67b6f39bca054a7cd9c5fd4b5e.js" defer></script>
+  <script src="/aurbit-web/_expo/static/js/web/index-11729944dc70c621714fa351d552e87e.js" defer></script>
 </body>
 </html>

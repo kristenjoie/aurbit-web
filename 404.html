@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <title>aurbit</title>
+    <style>
+      html, body { height: 100%; margin: 0; background-color: #0A0A0A; }
+    </style>
+    <script>
+      // SPA GitHub Pages redirect: encode the requested path into a query
+      // string that index.html decodes back into history state.
+      // Based on https://github.com/rafgraph/spa-github-pages
+      (function () {
+        var segmentCount = 1; // matches the /aurbit-web base path
+        var l = window.location;
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
