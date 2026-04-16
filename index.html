@@ -47,28 +47,19 @@
         color-scheme: dark;
         background-color: #0a0a0a;
       }
-      html {
+      html,
+      body {
         height: 100%;
         background-color: #0a0a0a;
       }
       body {
         margin: 0;
-        min-height: calc(100% + 1px);
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior-y: none;
-        background-color: #0a0a0a;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      body::-webkit-scrollbar {
-        display: none;
+        overflow: hidden;
       }
       #root {
         display: flex;
         flex: 1;
-        height: 100dvh;
-        height: -webkit-fill-available;
+        height: 100%;
         background-color: #0a0a0a;
       }
     </style>
@@ -79,6 +70,6 @@
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
-  <script src="/aurbit-web/_expo/static/js/web/index-5be0cc6fa3a4bb393eece9ec846700ea.js" defer></script>
+  <script src="/aurbit-web/_expo/static/js/web/index-aecbb81ed9f62cdd5a0e91571f3cd53a.js" defer></script>
 </body>
 </html>
