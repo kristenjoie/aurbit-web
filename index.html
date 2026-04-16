@@ -41,41 +41,6 @@
         }
       })(window.location);
     </script>
-    <!-- iOS Safari: collapse address bar on scroll down, expand on scroll up -->
-    <script>
-      (function () {
-        var ua = navigator.userAgent;
-        var iOS =
-          /iPad|iPhone|iPod/.test(ua) ||
-          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        if (!iOS) return;
-        var startY = 0;
-        var done = false;
-        document.addEventListener(
-          'touchstart',
-          function (e) {
-            startY = e.touches[0].clientY;
-            done = false;
-          },
-          { passive: true },
-        );
-        document.addEventListener(
-          'touchmove',
-          function (e) {
-            if (done) return;
-            var dy = startY - e.touches[0].clientY;
-            if (dy > 15) {
-              window.scrollTo(0, 1);
-              done = true;
-            } else if (dy < -15) {
-              window.scrollTo(0, 0);
-              done = true;
-            }
-          },
-          { passive: true },
-        );
-      })();
-    </script>
     <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
     <style id="expo-reset">
       :root {
@@ -89,8 +54,10 @@
       body {
         margin: 0;
         min-height: calc(100% + 1px);
-        background-color: #0a0a0a;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
         overscroll-behavior-y: none;
+        background-color: #0a0a0a;
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
@@ -98,10 +65,10 @@
         display: none;
       }
       #root {
-        position: fixed;
-        inset: 0;
         display: flex;
-        overflow: hidden;
+        flex: 1;
+        height: 100dvh;
+        height: -webkit-fill-available;
         background-color: #0a0a0a;
       }
     </style>
